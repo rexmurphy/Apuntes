@@ -2,14 +2,14 @@
 
 ## *Anotaciones para JAXB y Gson*
 
-[cite_start]Es necesario colocar anotaciones, para que sepan como convertir objetos a texto, y viceversa.
+Es necesario colocar anotaciones, para que sepan como convertir objetos a texto, y viceversa.
 
 ## *GSON*
 
-[cite_start]Se coloca solamente anotacion @SerializedName("nombre de la llave") sobre los atributos en los que 
+Se coloca solamente anotacion @SerializedName("nombre de la llave") sobre los atributos en los que 
 los nombres sean diferentes a la llave (basicamente un nombreAtribute en java vs un nombre_atributo en JSON )
 
-[cite_start]*IMPORTANTE* no se colocan sobre los getters, solo sobre atributos
+*IMPORTANTE* no se colocan sobre los getters, solo sobre atributos
 
 ### *LEER JSON (Gson.fromJson)*
 ```java
@@ -27,7 +27,7 @@ public Estacio llegirFitxerJSON(String nomFitxer) throws GestorEstacioException 
         throw new GestorEstacioException("No s'ha pogut lIegir el fitxer origen", e);
     }
 }
-
+```
 ### *ESCRIBIR JSON (Gson.toJson)*
 ```java
 public void gravarFitxerJSON(String nomFitxer, Estacio estacio) throws GestorEstacioException {
@@ -44,19 +44,19 @@ public void gravarFitxerJSON(String nomFitxer, Estacio estacio) throws GestorEst
         throw new GestorEstacioException("No s'ha pogut escriure el fitxer destí", e);
     }
 }
-
+```
 ## *JAXB* 
 
-[cite_start]Se colocan en los getter publicos
+Se colocan en los getter publicos
 
-[cite_start]si en el xml es un atributo, se coloca etiqueta @XmlAtribute
-[cite_start]si es un elemento, se coloca @XmlElement
-[cite_start]si el nombre en el xml lleva guion se escribe @XmlElement(name = "nombre-guion")
+si en el xml es un atributo, se coloca etiqueta @XmlAtribute
+si es un elemento, se coloca @XmlElement
+si el nombre en el xml lleva guion se escribe @XmlElement(name = "nombre-guion")
 
-[cite_start]Mapear Listas
-[cite_start]si uno de los atributos es una lista (que es otro modelo java) entonces
-[cite_start]@XmlElementWraper
-[cite_start]@XmlElement(name= ")
+Mapear Listas
+si uno de los atributos es una lista (que es otro modelo java) entonces
+@XmlElementWraper
+@XmlElement(name= ")
 
 ### *LEER XML (Unmarshaller)*
 ```java
@@ -76,7 +76,7 @@ public Estacio llegirFitxerXML(String nomFitxer) throws GestorEstacioException {
         throw new GestorEstacioException("No s'ha pogut llegir el fitxer origen", e);
     }
 }
-
+```
 ### *ESCRIBIR XML (Marshaller)*
 ```java
 public void gravarFitxerXML(String nomFitxer, Estacio estacio) throws GestorEstacioException {
@@ -93,7 +93,7 @@ public void gravarFitxerXML(String nomFitxer, Estacio estacio) throws GestorEsta
         throw new GestorEstacioException("No s'ha pogut escriure el fitxer destí", e);
     }
 }
-
+```
 
 ## *Generales JAVA*
 ```java
@@ -102,4 +102,4 @@ public void actualitzaEstatObertura() {
             .filter(Pista::isOberta) // Filtra dejando solo las pistas donde 'oberta' sea true 
             .count() * 100 / pistes.size()); 
 }
-
+```
